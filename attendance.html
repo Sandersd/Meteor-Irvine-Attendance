@@ -5,18 +5,18 @@
 <body>
   <h1>Welcome to Meteor Irvine!</h1>
 
-  {{> loginButtons}}<br>
+  {{> loginButtons}}<br> <!--Displays Login button from accounts-ui and accounts-twitter-->
   <p>Follow these Meteorites!</p><br>
-  {{> people}}
+  {{> people}} <!--Renders people template (line 13)-->
 </body>
 
 <template name="people">
-  {{#each twitterUsers}}
-    {{> twitterUser}}
+  {{#each twitterUsers}}   <!--Iterates over Meteor.users Collection (template helper defined in attendance.js)-->
+    {{> twitterUser}} <!--Renders twitterUser template for each user-->
   {{/each}}
 </template>
 
-<template name="twitterUser">
-  <img src="{{services.twitter.profile_image_url}}" >
+<template name="twitterUser"> <!--Scope is defined to each user-->
+  <img src="{{services.twitter.profile_image_url}}" > <!--Grabs profile image url from collection-->
   <a target="_blank" href="https://twitter.com/{{services.twitter.screenName}}">@{{services.twitter.screenName}}</a><br>
 </template>
