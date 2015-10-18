@@ -1,0 +1,22 @@
+<head>
+  <title>Attendance</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor Irvine!</h1>
+
+  {{> loginButtons}}<br>
+  <p>Follow these Meteorites!</p><br>
+  {{> people}}
+</body>
+
+<template name="people">
+  {{#each twitterUsers}}
+    {{> twitterUser}}
+  {{/each}}
+</template>
+
+<template name="twitterUser">
+  <img src="{{services.twitter.profile_image_url}}" >
+  <a target="_blank" href="https://twitter.com/{{services.twitter.screenName}}">@{{services.twitter.screenName}}</a><br>
+</template>
